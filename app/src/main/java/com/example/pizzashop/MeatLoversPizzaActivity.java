@@ -8,6 +8,7 @@ import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MeatLoversPizzaActivity extends AppCompatActivity {
 
@@ -27,10 +28,11 @@ public class MeatLoversPizzaActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Meat Lovers Pizza");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        numSlice = Order.meatLoversPizza[0];
+        numHalfPie = Order.meatLoversPizza[1];
+        numPie = Order.meatLoversPizza[2];
         summaryTextView = findViewById(R.id.meat_pizza_summary_textview);
-        numSlice = 0;
-        numHalfPie = 0;
-        numPie = 0;
+        summaryTextView.setText("Summary:\n\n"+numSlice+" Slices\n"+numHalfPie+" Half Pies\n"+numPie+" Pies");
 
         meatPizzaSliceInput();
         meatPizzaHalfPieInput();
@@ -112,7 +114,10 @@ public class MeatLoversPizzaActivity extends AppCompatActivity {
     //Back arrow top left
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        //TODO Add Soups
+        Toast.makeText(this, "Meat Lovers Pizza Updated", Toast.LENGTH_SHORT).show();
+        Order.meatLoversPizza[0] = numSlice;
+        Order.meatLoversPizza[1] = numHalfPie;
+        Order.meatLoversPizza[2] = numPie;
         finish();
         return super.onOptionsItemSelected(item);
     }
@@ -120,7 +125,10 @@ public class MeatLoversPizzaActivity extends AppCompatActivity {
     //Back button
     @Override
     public void onBackPressed() {
-        //TODO Add Soups
+        Toast.makeText(this, "Meat Lovers Pizza Updated", Toast.LENGTH_SHORT).show();
+        Order.meatLoversPizza[0] = numSlice;
+        Order.meatLoversPizza[1] = numHalfPie;
+        Order.meatLoversPizza[2] = numPie;
         finish();
     }
 }

@@ -31,10 +31,11 @@ public class DrinkActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Drinks");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        summaryTextView = findViewById(R.id.drink_summary_textview);
         numSmall = Order.drinks[0];
         numMedium = Order.drinks[1];
         numLarge = Order.drinks[2];
+        summaryTextView = findViewById(R.id.drink_summary_textview);
+        summaryTextView.setText("Summary:\n\n"+numSmall+" Small\n"+numMedium+" Medium\n"+numLarge+" Large");
 
         smallDrinkInput();
         mediumDrinkInput();

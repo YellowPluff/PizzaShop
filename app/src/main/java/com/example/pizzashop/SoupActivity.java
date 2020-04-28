@@ -28,9 +28,10 @@ public class SoupActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Soups");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        numCheeseburger = Order.soups[0];
+        numCheesyHam = Order.soups[1];
         summaryTextView = findViewById(R.id.soup_summary_textview);
-        numCheeseburger = 0;
-        numCheesyHam = 0;
+        summaryTextView.setText("Summary:\n\n"+numCheeseburger+" Cheeseburger Soup\n"+numCheesyHam+" Cheesy Ham Chowder");
 
         inputCheeseburger();
         inputCheesyHam();
@@ -87,7 +88,9 @@ public class SoupActivity extends AppCompatActivity {
     //Back arrow top left
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        //TODO Add Soups
+        Toast.makeText(this, "Soups Updated", Toast.LENGTH_SHORT).show();
+        Order.soups[0] = numCheeseburger;
+        Order.soups[1] = numCheesyHam;
         finish();
         return super.onOptionsItemSelected(item);
     }
@@ -95,7 +98,9 @@ public class SoupActivity extends AppCompatActivity {
     //Back button
     @Override
     public void onBackPressed() {
-        //TODO Add Soups
+        Toast.makeText(this, "Soups Updated", Toast.LENGTH_SHORT).show();
+        Order.soups[0] = numCheeseburger;
+        Order.soups[1] = numCheesyHam;
         finish();
     }
 }

@@ -8,6 +8,7 @@ import android.text.TextWatcher;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class CheesePizzaActivity extends AppCompatActivity {
 
@@ -27,10 +28,11 @@ public class CheesePizzaActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Cheese Pizza");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        numSlice = Order.cheesePizza[0];
+        numHalfPie = Order.cheesePizza[1];
+        numPie = Order.cheesePizza[2];
         summaryTextView = findViewById(R.id.cheese_pizza_summary_textview);
-        numSlice = 0;
-        numHalfPie = 0;
-        numPie = 0;
+        summaryTextView.setText("Summary:\n\n"+numSlice+" Slices\n"+numHalfPie+" Half Pies\n"+numPie+" Pies");
 
         cheesePizzaSliceInput();
         cheesePizzaHalfPieInput();
@@ -112,7 +114,10 @@ public class CheesePizzaActivity extends AppCompatActivity {
     //Back arrow top left
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        //TODO Add Soups
+        Toast.makeText(this, "Cheese Pizza Updated", Toast.LENGTH_SHORT).show();
+        Order.cheesePizza[0] = numSlice;
+        Order.cheesePizza[1] = numHalfPie;
+        Order.cheesePizza[2] = numPie;
         finish();
         return super.onOptionsItemSelected(item);
     }
@@ -120,7 +125,10 @@ public class CheesePizzaActivity extends AppCompatActivity {
     //Back button
     @Override
     public void onBackPressed() {
-        //TODO Add Soups
+        Toast.makeText(this, "Cheese Pizza Updated", Toast.LENGTH_SHORT).show();
+        Order.cheesePizza[0] = numSlice;
+        Order.cheesePizza[1] = numHalfPie;
+        Order.cheesePizza[2] = numPie;
         finish();
     }
 }
