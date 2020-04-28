@@ -15,8 +15,6 @@ import android.widget.Toast;
 
 public class DrinkActivity extends AppCompatActivity {
 
-    private Order customerOrder;
-
     private EditText drinkInputSmall;
     private EditText drinkInputMedium;
     private EditText drinkInputLarge;
@@ -33,14 +31,10 @@ public class DrinkActivity extends AppCompatActivity {
         getSupportActionBar().setTitle("Drinks");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        Intent intent = getIntent();
-        customerOrder = (Order) intent.getSerializableExtra("ORDER");
-
-        summaryTextView = findViewById(R.id.summary_textview);
-        int[] drinks = customerOrder.getDrinks();
-        numSmall = drinks[0];
-        numMedium = drinks[1];
-        numLarge = drinks[2];
+        summaryTextView = findViewById(R.id.drink_summary_textview);
+        numSmall = Order.drinks[0];
+        numMedium = Order.drinks[1];
+        numLarge = Order.drinks[2];
 
         smallDrinkInput();
         mediumDrinkInput();
@@ -120,24 +114,24 @@ public class DrinkActivity extends AppCompatActivity {
         });
     }
 
+    //Back arrow top left
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        //TODO Add Drinks
         Toast.makeText(this, "Drinks Updated", Toast.LENGTH_SHORT).show();
-//        customerOrder.setDrinks(numSmall, numMedium, numLarge);
-        Intent returnIntent = new Intent();
-        returnIntent.putExtra("ORDER", customerOrder);
-//        returnIntent.putExtra("SMALL_DRINK", numSmall);
-//        returnIntent.putExtra("MEDIUM_DRINK", numMedium);
-//        returnIntent.putExtra("LARGE_DRINK", numLarge);
-        setResult(Activity.RESULT_OK, returnIntent);
+        Order.drinks[0] = numSmall;
+        Order.drinks[1] = numMedium;
+        Order.drinks[2] = numLarge;
         finish();
         return super.onOptionsItemSelected(item);
     }
 
+    //Back button
     @Override
     public void onBackPressed() {
-        //TODO Add Drinks
+        Toast.makeText(this, "Drinks Updated", Toast.LENGTH_SHORT).show();
+        Order.drinks[0] = numSmall;
+        Order.drinks[1] = numMedium;
+        Order.drinks[2] = numLarge;
         finish();
     }
 }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/main_background_color"
     android:orientation="vertical"
-    tools:context=".DrinkActivity">
+    tools:context=".MeatLoversPizzaActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/drink_icon_small" />
+            app:srcCompat="@drawable/pizza_icon_small" />
 
         <TextView
             android:layout_width="0dp"
@@ -28,10 +28,10 @@
             android:gravity="center_vertical"
             android:textStyle="bold"
             android:textSize="20dp"
-            android:text="Small" />
+            android:text="1 Slice" />
 
         <EditText
-            android:id="@+id/drink_input_small"
+            android:id="@+id/meat_pizza_input_slice"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -55,7 +55,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/drink_icon_small" />
+            app:srcCompat="@drawable/pizza_icon_small" />
 
         <TextView
             android:layout_width="0dp"
@@ -65,10 +65,10 @@
             android:gravity="center_vertical"
             android:textStyle="bold"
             android:textSize="20dp"
-            android:text="Medium" />
+            android:text="1/2 Pie" />
 
         <EditText
-            android:id="@+id/drink_input_medium"
+            android:id="@+id/meat_pizza_input_half_pie"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -93,7 +93,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/drink_icon_small" />
+            app:srcCompat="@drawable/pizza_icon_small" />
 
         <TextView
             android:layout_width="0dp"
@@ -103,10 +103,10 @@
             android:gravity="center_vertical"
             android:textStyle="bold"
             android:textSize="20dp"
-            android:text="Large" />
+            android:text="1 Pie" />
 
         <EditText
-            android:id="@+id/drink_input_large"
+            android:id="@+id/meat_pizza_input_pie"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -117,13 +117,12 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/drink_summary_textview"
+        android:id="@+id/meat_pizza_summary_textview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:textStyle="bold"
         android:textSize="24dp"
-        android:text="Summary:\n\n0 Small\n0 Medium\n0 Large" />
-
+        android:text="Summary:\n\n0 Slices\n0 Half Pies\n0 Pies" />
 
 </LinearLayout>

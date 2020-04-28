@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/main_background_color"
     android:orientation="vertical"
-    tools:context=".DrinkActivity">
+    tools:context=".SoupActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,7 +18,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/drink_icon_small" />
+            app:srcCompat="@drawable/soup_icon_small" />
 
         <TextView
             android:layout_width="0dp"
@@ -28,10 +28,10 @@
             android:gravity="center_vertical"
             android:textStyle="bold"
             android:textSize="20dp"
-            android:text="Small" />
+            android:text="Cheeseburger Soup" />
 
         <EditText
-            android:id="@+id/drink_input_small"
+            android:id="@+id/soup_input_cheeseburger"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -55,7 +55,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@drawable/drink_icon_small" />
+            app:srcCompat="@drawable/soup_icon_small" />
 
         <TextView
             android:layout_width="0dp"
@@ -65,48 +65,10 @@
             android:gravity="center_vertical"
             android:textStyle="bold"
             android:textSize="20dp"
-            android:text="Medium" />
+            android:text="Cheesy Ham Chowder" />
 
         <EditText
-            android:id="@+id/drink_input_medium"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:ems="10"
-            android:text="0"
-            android:inputType="number" />
-
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="10dp"
-        android:background="?android:attr/listDivider" />
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            app:srcCompat="@drawable/drink_icon_small" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2"
-            android:textColor="@android:color/black"
-            android:gravity="center_vertical"
-            android:textStyle="bold"
-            android:textSize="20dp"
-            android:text="Large" />
-
-        <EditText
-            android:id="@+id/drink_input_large"
+            android:id="@+id/soup_input_cheesy_ham"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -117,13 +79,12 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/drink_summary_textview"
+        android:id="@+id/soup_summary_textview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
         android:textStyle="bold"
         android:textSize="24dp"
-        android:text="Summary:\n\n0 Small\n0 Medium\n0 Large" />
-
+        android:text="Summary:\n\n0 Cheeseburger Soup\n0 Cheesy Ham Chowder" />
 
 </LinearLayout>
