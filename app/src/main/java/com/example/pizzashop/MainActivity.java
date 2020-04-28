@@ -9,52 +9,29 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
-    private Order customerOrder;
-    private int DRINKS_REQ_CODE = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         getSupportActionBar().setSubtitle("The Best Pizza");
-
-        customerOrder = new Order();
     }
 
     public void openPizzaActivity(View view) {
-        Toast.makeText(this, "Open Pizza Activity", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, PizzaActivity.class);
+        startActivity(intent);
     }
 
     public void openSoupsActivity(View view) {
-        Toast.makeText(this, "Open Soup Activity", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, SoupActivity.class);
+        startActivity(intent);
     }
 
     public void openDrinksActivity(View view) {
         Intent intent = new Intent(this, DrinkActivity.class);
-        intent.putExtra("ORDER", customerOrder);
-        startActivityForResult(intent, DRINKS_REQ_CODE);
-//        startActivity(intent);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == DRINKS_REQ_CODE) {
-            if(resultCode == Activity.RESULT_OK){
-                customerOrder = (Order) data.getSerializableExtra("ORDER");
-//                int smallDrinks = data.getIntExtra("SMALL_DRINK", 0);
-//                int mediumDrinks = data.getIntExtra("MEDIUM_DRINK", 0);
-//                int largeDrinks = data.getIntExtra("LARGE_DRINK", 0);
-//                customerOrder.setDrinks(smallDrinks, mediumDrinks, largeDrinks);
-            }
-            if (resultCode == Activity.RESULT_CANCELED) {
-                //Write your code if there's no result
-            }
-        }
+        startActivity(intent);
     }
 
     @Override
@@ -67,10 +44,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if(id == R.id.action_shopping_cart) {
-            int[] drinksInOrder = customerOrder.getDrinks();
-            Log.w("fatal", "Small: " + drinksInOrder[0] + ". Medium: " + drinksInOrder[1] + ". Large: " + drinksInOrder[2] + ".");
-//            Intent intent = new Intent(this, HelpActivity.class);
-//            startActivity(intent);
+            Log.w("fatal", "Small: " + Order.drinks[0] + ". Medium: " + Order.drinks[1] + ". Large: " + Order.drinks[2] + ".");
         }
         return super.onOptionsItemSelected(item);
     }
