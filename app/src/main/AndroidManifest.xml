@@ -9,12 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MeatLoversPizzaActivity"></activity>
-        <activity android:name=".CheesePizzaActivity" />
-        <activity android:name=".PizzaActivity" />
-        <activity android:name=".SoupActivity" />
-        <activity android:name=".DrinkActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".CheckoutActivity" android:screenOrientation="portrait" />
+        <activity android:name=".MeatLoversPizzaActivity" android:screenOrientation="portrait" />
+        <activity android:name=".CheesePizzaActivity" android:screenOrientation="portrait" />
+        <activity android:name=".PizzaActivity" android:screenOrientation="portrait" />
+        <activity android:name=".SoupActivity" android:screenOrientation="portrait" />
+        <activity android:name=".DrinkActivity" android:screenOrientation="portrait" />
+        <activity android:name=".MainActivity" android:screenOrientation="portrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

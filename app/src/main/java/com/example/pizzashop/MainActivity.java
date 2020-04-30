@@ -44,7 +44,8 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         if(id == R.id.action_shopping_cart) {
-            Log.w("fatal", "Small: " + Order.drinks[0] + ". Medium: " + Order.drinks[1] + ". Large: " + Order.drinks[2] + ".");
+            Intent intent = new Intent(this, CheckoutActivity.class);
+            startActivity(intent);
         }
         return super.onOptionsItemSelected(item);
     }
