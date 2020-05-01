@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -17,6 +18,7 @@ public class CheckoutActivity extends AppCompatActivity {
     private TextView soupCheeseburger, soupCheesyHam;
     private TextView drinkSmall, drinkMedium, drinkLarge;
     private Button checkoutButton;
+    private String total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,7 @@ public class CheckoutActivity extends AppCompatActivity {
         drinkMedium = findViewById(R.id.drinks_medium_textview);
         drinkLarge = findViewById(R.id.drinks_large_textview);
         checkoutButton = findViewById(R.id.checkout_button);
+        total = Order.calculateTotal();
     }
 
     private void setValues() {
@@ -55,7 +58,7 @@ public class CheckoutActivity extends AppCompatActivity {
         drinkSmall.setText(Order.drinks[0]+"");
         drinkMedium.setText(Order.drinks[0]+"");
         drinkLarge.setText(Order.drinks[0]+"");
-        checkoutButton.setText("Place Order $" + Order.calculateTotal());
+        checkoutButton.setText("Place Order $" + total);
     }
 
     public void editCheesePizza(View view) {
@@ -79,15 +82,21 @@ public class CheckoutActivity extends AppCompatActivity {
     }
 
     public void placeOrder(View view) {
-        Toast.makeText(this, "Order Placed", Toast.LENGTH_SHORT).show();
-        Order.resetOrder();
-        finish();
+        Log.w("fatal", total);
+        if(total.equals("0.00")) {
+            Toast.makeText(this, "Cannot place empty order", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, "Order Placed", Toast.LENGTH_SHORT).show();
+            Order.resetOrder();
+            finish();
+        }
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 1) {
+            total = Order.calculateTotal();
             setValues();
         }
     }
